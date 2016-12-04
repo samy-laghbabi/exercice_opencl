@@ -9,7 +9,7 @@
 
 
 $lst = get-childitem d:\tst_pws
-foreach ($id in $lst)  {if ($id.name.substring(0,2) -eq "AA"){write-host "fichier AA" + $id
-                                                              export-csv }
-                        if ($id.name.substring(0,2) -eq "BB"){write-host "fichier BB" + $id}
+foreach ($id in $lst)  {  $v = "$id.name" + "$id.fullname"
+                        if ($id.name.substring(0,2) -eq "AA"){add-content -path d:\tst_pws\results\AA.csv  -value $v}
+                        if ($id.name.substring(0,2) -eq "BB"){add-content -path d:\tst_pws\results\BB.csv  -value $v}
                         }
